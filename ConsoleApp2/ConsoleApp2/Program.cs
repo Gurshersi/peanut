@@ -3,21 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
-namespace ConsoleApp2
+namespace 715837
 {
-    class Program
+class Program
+{
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("downloading file");
-            Console.ReadLine();
-        }
+        Console.WriteLine("Peter Rules the IT Universe!");
+        Download();
+        Console.ReadLine();
+    }
 
-        static void Download()
+    static async void Download()
+    {
+        await Network.Download();
+        Console.WriteLine("Download Complete");
+    }
+    class Network
+    {
+        static public Task Download()
         {
-            Thread.Sleep(3000);
-            Console.WriteLine("download complete!!@!");
+            return Task.Run(() => Thread.Sleep(3000));
         }
     }
+}
 }
